@@ -22,10 +22,7 @@ namespace API.Controllers
         public async Task<ActionResult<IEnumerable<AppUser>>> GetUsers() => await _Dbcontext.Users.ToListAsync();
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<AppUser>> GetUser(int id)
-        {
-            return await _Dbcontext.Users.FindAsync(id);
-        }
+        public async Task<ActionResult<AppUser>> GetUser(int id) => await _Dbcontext.Users.FindAsync(id);
 
 
     }
