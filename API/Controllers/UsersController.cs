@@ -18,12 +18,10 @@ namespace API.Controllers
         }
 
         [HttpGet]
-        [Authorize]
 
         public async Task<ActionResult<IEnumerable<AppUser>>> GetUsers() => await _Dbcontext.Users.ToListAsync();
 
         [HttpGet("{id}")]
-        [Authorize]
         public async Task<ActionResult<AppUser>> GetUser(int id) => await _Dbcontext.Users.FindAsync(id);
 
 
