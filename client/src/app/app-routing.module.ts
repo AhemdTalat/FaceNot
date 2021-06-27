@@ -11,26 +11,26 @@ import { MessagesComponent } from './messages/messages.component';
 import { AuthGuard } from './_guards/auth.guard';
 
 const routes: Routes = [
-  {path: '', component: HomeComponent},
+  { path: '', component: HomeComponent },
   {
     path: '',
     runGuardsAndResolvers: 'always',
-    canActivate:  [AuthGuard],
+    canActivate: [AuthGuard],
     children: [
-      {path: 'members', component: MemberListComponent},
-      {path: 'members/:id', component: MemberDetailComponent},
-      {path: 'lists', component: ListsComponent},
-      {path: 'messages', component: MessagesComponent}
-    ]
+      { path: 'members', component: MemberListComponent },
+      { path: 'members/:username', component: MemberDetailComponent },
+      { path: 'lists', component: ListsComponent },
+      { path: 'messages', component: MessagesComponent },
+    ],
   },
-  {path: 'errors', component: TestErrorsComponent, pathMatch: 'full'},
-  {path: 'not-found', component: NotFoundComponent, pathMatch: 'full'},
-  {path: 'server-error', component: ServerErrorComponent, pathMatch: 'full'},
-  {path: '**', component: NotFoundComponent, pathMatch: 'full'}
+  { path: 'errors', component: TestErrorsComponent, pathMatch: 'full' },
+  { path: 'not-found', component: NotFoundComponent, pathMatch: 'full' },
+  { path: 'server-error', component: ServerErrorComponent, pathMatch: 'full' },
+  { path: '**', component: NotFoundComponent, pathMatch: 'full' },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
